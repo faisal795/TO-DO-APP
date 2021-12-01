@@ -1,0 +1,157 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all .2s;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    padding: 2rem;
+}
+
+:root{
+    --border-rdus: 1rem;
+    --color: #ffff;
+    --shadow: 0 0 1.5rem rgba(0, 0, 0, 0.5);
+
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.container h1{
+    background-color: blueviolet;
+    font-size: 4rem;
+    margin: 1rem;
+    padding: 1rem 6rem;
+    border-radius: var(--border-rdus);
+    color: var(--color);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+}
+.add_Div [type="text"]{
+    padding: .5rem 1.5rem;
+   font-size: 1.7rem;
+   font-weight: 600;
+   border: none;
+   outline: none;
+   margin: 1rem 0;
+   border-radius: var(--border-rdus);
+   margin-right: .6rem;
+   border-bottom: .2rem solid rgb(0, 81, 128);
+   box-shadow: var(--shadow);
+}
+
+.add_Div [type="button"]{
+    display: inline;
+    font-size: 2rem;
+    background-color: #05c73f;
+    padding: .6rem 1.2rem;
+    outline: none;
+    border: none;
+    border-radius: 1rem;
+    color: var(--color);
+    box-shadow: var(--shadow);
+}
+.add_Div [type="button"]:hover{
+    background-color: #00a03d;
+    cursor: pointer;
+}
+
+.notes_div{
+    background: #cccc;
+    width: 35.5rem;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    border-radius: var(--border-rdus);
+    padding-bottom: 1.5rem;
+}
+.notes_div h2{
+    padding: 1rem;
+    font-size: 2.5rem;
+    color: #1c1c1c;
+    border-bottom: 2px solid var(--color);
+    width: 100%;
+    text-align: center;
+    
+}
+.all_notes{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+}
+.note{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    padding: .4rem 0;
+    font-weight: 600;
+    align-items: center;
+    color: #333;
+}
+
+.note button {
+    background-color: #b8a11f;
+    padding: .3rem .6rem;
+    border: none;
+    outline: none;
+    color: var(--color);
+    border-radius: .5rem;
+}
+.note button:hover{
+    background-color: #d4bf00d8;
+    cursor: pointer;
+}
+#clear{
+    background-color: #df2020;
+    border: none;
+    font-size: 2.5rem;
+    letter-spacing: .1rem;
+    padding: .6rem 1.2rem;
+    color: var(--color);
+    margin: 1rem;
+    border-radius: var(--border-rdus);
+    box-shadow: var(--shadow);
+
+}
+#clear:hover{
+    background-color: #f50000;
+    transform: translateY(-.1rem);
+    cursor: pointer;
+
+}
+
+.main{
+    background-color: #fff;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow);
+    border-radius: var(--border-rdus);
+
+}
+
+
+
+
+@media (max-width:438px){
+    html{
+        font-size: 48%;
+    }
+}
