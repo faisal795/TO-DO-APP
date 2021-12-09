@@ -5,63 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
     <link rel="stylesheet" href="style.css">
-    <title>TO-DO-APP</title>
+    <title>TO-DO-LIST</title>
 </head>
 
 <body>
-    <div class="mobile_body">
-        <div class="mobile_screen">
-            <img src="phn.png" alt="">
-
-            <div class="app_div">
-                <h1>TODO<span>List</span></h1>
-                <div class="input_div">
-                    <input type="text" placeholder="Do you want to do..." id="user_val">
-                    <button id="add_todo">+</button>
-                </div>
-
-                <div class="all_notes" id="NotesDiv">
-                    <!-- <div class="note">
-                        <p>code 02</p>
-                        <div class="buttons">
-                            <button id="edit_note">EDIT</button>
-                            <button id="remove">REMOVE</button>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div class="note">
-                        <p>Test ToDo </p>
-                        <div class="buttons">
-                            <button id="edit_note">EDIT</button>
-                            <button id="remove">REMOVE</button>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div class="note">
-                        <p>Make Video</p>
-                        <div class="buttons">
-                            <button id="edit_note">EDIT</button>
-                            <button id="remove">REMOVE</button>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div class="note">
-                        <p>Play Game</p>
-                        <div class="buttons">
-                            <button id="edit_note">EDIT</button>
-                            <button id="remove">REMOVE</button>
-                        </div>
-                    </div>
-                    <hr> -->
-
-                </div>
+    <div class="container">
+        <div class="main">
+            <h1>TO-DO-LIST</h1>
+            <div class="add_Div">
+                <input type="text" placeholder="add a todo..." id="myToDo">
+                <input type="button" value="submit" id="addToDo">
             </div>
+            <div class="notes_div">
+                <h2>Your Notes</h2>
+                <div class="all_notes" id="NotesDiv"> </div>
+            </div>
+            <button id="clear">Clear All</button>
         </div>
-    </div>
 </body>
 <script src="app.js"></script>
+
 </html>
