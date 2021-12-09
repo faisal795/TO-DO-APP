@@ -1,47 +1,67 @@
-
 'use strict';
 
-showAllNotes();
+showNotes();
 
-let addToDo = document.querySelector('#addToDo');
-addToDo.addEventListener('click', function (elmnt) {
-    let myToDo = document.querySelector('#myToDo');
+// Add Note in localStorage 
 
-    let notes = sessionStorage.getItem('notes');
-    let notesArry = [];
-    (notes === null) ?  notesArry = [] : notesArry = JSON.parse(notes);
+document.querySelector('#add_todo').addEventListener('click', function () {
 
-    notesArry.push(myToDo.value);
-    sessionStorage.setItem('notes', JSON.stringify(notesArry));
-    myToDo.value = '';
-    showAllNotes();
+    let user_val = document.querySelector('#user_val');
+
+    if (user_val.value.trim() != 0) {
+        let allNotes = localStorage.getItem('allNotes');
+        let notesArry = [];
+        (allNotes === null) ? notesArry = [] : notesArry = JSON.parse(allNotes);  // 
+
+        notesArry.push(user_val.value);
+        localStorage.setItem("allNotes", JSON.stringify(notesArry));   // 
+        user_val.value = '';
+    }
+    showNotes();
 });
-function showAllNotes() {
-    let notes = sessionStorage.getItem('notes');
+
+function showNotes() {
+    let allNotes = localStorage.getItem('allNotes');
     let notesArry = [];
-    (notes === null) ?  notesArry = [] : notesArry = JSON.parse(notes);
-    let showHTML = '';
-    notesArry.forEach(function (elmnt, index) {
-        showHTML = showHTML + `<div class="note">
-        <p> ${elmnt}</p>
-        <button id="${index}" onclick="deleteNote(this.id)">Delete</button>
-    </div>`;
+    (allNotes === null) ? notesArry = [] : notesArry = JSON.parse(allNotes);  // 
+
+    let HTML = '';
+    notesArry.forEach(function (element, index) {
+
+        HTML += `<div class="note">
+        <p>${element}</p>
+        <div class="buttons">
+            <button class="edit_note" id="${index}" onclick='editNote(this.id)'>EDIT</button>
+            <button class="remove" id="${index}" onclick='deleteNote(this.id)'>REMOVE</button>
+        </div>
+    </div>
+    <hr>`;
     });
+
     let NotesDiv = document.querySelector('#NotesDiv');
-    (notesArry.length != 0) ? NotesDiv.innerHTML = showHTML : NotesDiv.innerHTML = '<h2>Add Notes!</h2>';
+    (notesArry.length == 0) ? NotesDiv.innerHTML = '<h2>Add Notes!</h2>' : NotesDiv.innerHTML = HTML;
 }
-function deleteNote(index) {
-    let notes = sessionStorage.getItem('notes');
+
+// Edit Note functinly 
+function editNote(index) {
+    let allNotes = localStorage.getItem('allNotes');
     let notesArry = [];
-    (notes === null) ?  notesArry = [] : notesArry = JSON.parse(notes);
-    notesArry.splice(index, 1);
-    sessionStorage.setItem('notes', JSON.stringify(notesArry));
-    showAllNotes();
+    (allNotes === null) ? notesArry = [] : notesArry = JSON.parse(allNotes);
+    let updateNote = notesArry.splice(index, 1);
+    console.log(updateNote);
+    user_val.value = updateNote;
+    localStorage.setItem("allNotes", JSON.stringify(notesArry));
+    showNotes();
 }
 
-document.querySelector('#clear').addEventListener('click', function () {
-   
-    sessionStorage.clear();
-    showAllNotes();
+// Delete Note functinly 
+function deleteNote(index) {
+    let allNotes = localStorage.getItem('allNotes');
+    let notesArry = [];
+    (allNotes === null) ? notesArry = [] : notesArry = JSON.parse(allNotes);
+     notesArry.splice(index, 1);
+    localStorage.setItem("allNotes", JSON.stringify(notesArry));
+    showNotes();
+}
 
-})
+
